@@ -3,6 +3,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import UserDropdown from '../pages/UserDropdown';
 
 
 
@@ -102,20 +103,13 @@ function Dashboard() {
               <div className="flex flex-wrap gap-5 justify-between max-md:max-w-full">
                 <div className="flex flex-col">
                   <div className="self-start text-base leading-none text-stone-500">
-                    Bonjour John, content de te revoir.
+                    Bonjour Coumba, content de te revoir.
                   </div>
                   <div className="mt-1 text-3xl font-semibold tracking-wide leading-none text-indigo-800">
                     Votre tableau de bord aujourd'hui
                   </div>
                 </div>
-                <Link to="/profile">
-                      <img
-                        loading="lazy"
-                        srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/f65e14c105c9ae43048667c73a1f939776bb4b0a9a8bd1687bdbf71175fe3c5e?placeholderIfAbsent=true&apiKey=2abb0b1728de4d98902e239cea09e9d5&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/f65e14c105c9ae43048667c73a1f939776bb4b0a9a8bd1687bdbf71175fe3c5e?placeholderIfAbsent=true&apiKey=2abb0b1728de4d98902e239cea09e9d5&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/f65e14c105c9ae43048667c73a1f939776bb4b0a9a8bd1687bdbf71175fe3c5e?placeholderIfAbsent=true&apiKey=2abb0b1728de4d98902e239cea09e9d5&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/f65e14c105c9ae43048667c73a1f939776bb4b0a9a8bd1687bdbf71175fe3c5e?placeholderIfAbsent=true&apiKey=2abb0b1728de4d98902e239cea09e9d5&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/f65e14c105c9ae43048667c73a1f939776bb4b0a9a8bd1687bdbf71175fe3c5e?placeholderIfAbsent=true&apiKey=2abb0b 1728de4d98902e239cea09e9d5&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/f65e14c105c9ae43048667c73a1f939776bb4b0a9a8bd1687bdbf71175fe3c5e?placeholderIfAbsent=true&apiKey=2abb0b1728de4d98902e239cea09e9d5&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/f65e14c105c9ae43048667c73a1f939776bb4b0a9a8bd1687bdbf71175fe3c5e?placeholderIfAbsent=true&apiKey=2abb0b1728de4d98902e239cea09e9d5&width=2000 2000w"
-                        className="object-contain shrink-0 my-auto max-w-full aspect-[4.61] w-[184px]"
-                        alt="Profile"
-                      />
-                  </Link>
+                <UserDropdown/>
               </div>
               <div className="mt-4 max-md:mr-0.5 max-md:max-w-full">
                 <div className="flex gap-5 max-md:flex-col">
@@ -276,8 +270,8 @@ function Dashboard() {
                 className="object-contain shrink-0 w-12 rounded-full aspect-square"
               />
               <div className="flex flex-col">
-                <div className="text-lg font-semibold">Dianne Edwards</div>
-                <div className="self-start text-sm">@dianneed</div>
+                <div className="text-lg font-semibold">Fatou kine</div>
+                <div className="self-start text-sm">@xarala</div>
               </div>
             </div>
             <div className="flex justify-center self-start px-3.5 text-base font-bold leading-none text-center text-white bg-indigo-800 rounded-lg min-h-[38px]">
@@ -285,7 +279,7 @@ function Dashboard() {
             </div>
           </div>
           <div className="px-7 py-4 mt-52 text-lg font-medium text-white rounded-2xl bg-neutral-400 bg-opacity-50 max-md:px-5 max-md:mt-10">
-            Dynamo numérique : Libérez votre potentiel en ligne
+          Création de Campagnes Numériques Convaincantes
           </div>
         </div>
       </div>
@@ -313,10 +307,10 @@ d98902e239cea09e9d5&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets
                                         />
                                         <div className="flex flex-col">
                                           <div className="text-lg font-semibold">
-                                            Dianne Edwards
+                                            Fatou Diop
                                           </div>
                                           <div className="self-start text-sm">
-                                            @dianneed
+                                            @xarala
                                           </div>
                                         </div>
                                       </div>
@@ -327,7 +321,7 @@ d98902e239cea09e9d5&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets
                                       </div>
                                     </div>
                                     <div className="px-7 py-4 mt-52 text-lg font-medium text-white rounded-2xl bg-neutral-400 bg-opacity-50 max-md:px-5 max-md:mt-10">
-                                      Dynamo numérique : Libérez votre potentiel en ligne
+                                      Soft Skills : Libérez votre potentiel en ligne
                                     </div>
                                   </div>
                                 </div>
@@ -358,9 +352,9 @@ d98902e239cea09e9d5&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets
             className="object-contain shrink-0 rounded-2xl aspect-square w-[95px]"
           />
           <div className="flex flex-col items-start self-start">
-            <div className="self-stretch text-lg leading-loose">Evan Lindsey</div>
+            <div className="self-stretch text-lg leading-loose">Oumou Gueye</div>
             <div className="mt-1 text-sm leading-7 bg-blend-normal">Début : 17 avril</div>
-            <div className="mt-2 text-base text-amber-500">159 $</div>
+            <div className="mt-2 text-base text-amber-500">20.000 frcfa</div>
           </div>
         </div>
         <div className="mt-2.5 text-base font-semibold leading-7 text-stone-500">
@@ -386,7 +380,7 @@ d98902e239cea09e9d5&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets
                                     Début : 19 avril
                                   </div>
                                   <div className="mt-2 text-base text-amber-500">
-                                    159 $
+                                    40.000 frcfa
                                   </div>
                                 </div>
                               </div>
@@ -412,7 +406,7 @@ d98902e239cea09e9d5&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets
                             />
                             <div className="flex flex-col">
                               <div className="text-base font-medium leading-none text-sky-950">
-                                We The Feast
+                                Wakh sa khalat
                               </div>
                               <div className="self-start mt-2 text-xs text-zinc-500">
                                 48 Membres
@@ -433,7 +427,7 @@ d98902e239cea09e9d5&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets
                             />
                             <div className="flex flex-col">
                               <div className="text-base font-medium leading-none text-sky-950">
-                                We The Feast
+                                Entre-aide
                               </div>
                               <div className=" self-start mt-2 text-xs text-zinc-500">
                                 18 Membres
@@ -454,7 +448,7 @@ d98902e239cea09e9d5&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets
                             />
                             <div className="flex flex-col">
                               <div className="text-base font-medium leading-none text-sky-950">
-                                We The Feast
+                                Partage d'idees
                               </div>
                               <div className="self-start mt-2 text-xs text-zinc-500">
                                 26 Membres
@@ -478,7 +472,7 @@ d98902e239cea09e9d5&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets
                                 We The Feast
                               </div>
                               <div className="self-start mt-2 text-xs text-zinc-500">
-                                32 Membres
+                                Communaute xarala
                               </div>
                             </div>
                           </div>
@@ -497,7 +491,7 @@ EMP/56dc4cf4dc1b61bb9805568703a1fcc7a71b8934db97da55f36890097066ad52?placeholder
                             />
                             <div className="flex flex-col">
                               <div className="text-base font-medium leading-none text-sky-950">
-                                We The Feast
+                                Alumnis dev web
                               </div>
                               <div className="self-start mt-2 text-xs text-zinc-500">
                                 54 Membres

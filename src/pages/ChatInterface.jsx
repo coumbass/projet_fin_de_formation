@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 const Navigation = () => {
-  const [activeTab, setActiveTab] = useState("home");
+  const [activeTab, setActiveTab] = useState("messages");
   const navigate = useNavigate(); // Hook pour la navigation
 
   const getButtonClasses = (tabName) => {
@@ -33,7 +33,7 @@ const Navigation = () => {
         <button
           onClick={() => {
             setActiveTab("home");
-            navigate("/"); // Redirige vers la page d'accueil
+            navigate("/dashboard"); // Redirige vers la page d'accueil
           }}
           className={getButtonClasses("home")}
         >

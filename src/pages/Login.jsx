@@ -1,92 +1,187 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 
-function Login() {
-  const navigate = useNavigate();
+export const Login = () => {
+  const [formData, setFormData] = useState({
+    email: 'sarelsow@gmail.com',
+    password: 'passer123',
+    rememberMe: false,
+    showPassword: false
+  });
 
-  const handleSignIn = (e) => {
-    e.preventDefault(); // Empêche le rechargement de la page
-    navigate("/dashboard"); // Redirige vers la page Dashboard
+  const handleInputChange = (name, value) => {
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (formData.email && formData.password) {
+      console.log('Form submitted:', formData);
+    }
+  };
+
+  const togglePasswordVisibility = () => {
+    setFormData(prev => ({
+      ...prev,
+      showPassword: !prev.showPassword
+    }));
   };
 
   return (
-    <div className="flex flex-col bg-white min-h-screen">
-      <div className="relative w-full">
+    <div className="flex overflow-hidden flex-col bg-white min-h-screen">
+      <div className="flex relative flex-col w-full min-h-[1024px]">
         <img
-          src="https://media.istockphoto.com/id/1469091983/photo/programmer-typing-computer-codes-on-computer.jpg?s=1024x1024&w=is&k=20&c=aBh_QyT0_snwvfnQpyOYREVZ5xEmIgPC-5-OLSH8EF4="
-          className="absolute inset-0 w-full h-full object-cover"
-          alt="background"
+          loading="lazy"
+          src="https://media.istockphoto.com/id/1647776840/photo/product-props-multicolor-laser-light-neon-lights-product-placement-studio-facade-stage.jpg?s=1024x1024&w=is&k=20&c=czRC3wJiLHjWC-eeICO-DxCyCzSaKfk8YbSHZTSR2BA="
+          className="object-cover absolute inset-0 size-full"
+          alt="Background"
         />
-        <div className="relative pt-20 flex flex-col items-center max-w-7xl mx-auto">
-          <div className="flex gap-5 flex-col md:flex-row w-full">
-            <div className="md:w-1/2 text-white">
-              <img
-                src="https://via.placeholder.com/207"
-                className="w-52"
-                alt="Logo"
-              />
-              <h1 className="mt-6 text-4xl text-amber-500">India's First eCommerce</h1>
-              <h2 className="mt-4 text-3xl font-semibold">and Applied Marketing Academy</h2>
-              <p className="mt-3 text-xl">
-                Industry backed programs designed by professionals to accelerate your digital career.
-              </p>
-            </div>
-            <div className="md:w-1/2 bg-white p-10 rounded-2xl shadow-lg">
-              <img
-                src="https://via.placeholder.com/139"
-                className="w-36 mx-auto"
-                alt="Learner"
-              />
-              <h2 className="mt-5 text-2xl font-bold text-neutral-700 text-center">Learner Login</h2>
-              <p className="mt-4 text-lg text-neutral-700 text-center">Sign In to your Account</p>
-              <form className="mt-6 space-y-6" onSubmit={handleSignIn}>
-                <div>
-                  <label className="block text-neutral-900">Email ID</label>
-                  <input
-                    type="email"
-                    placeholder="Enter your Email ID"
-                    className="w-full p-4 border border-zinc-400 rounded-lg"
+        <div className="flex relative flex-col pt-20 w-full">
+          <div className="self-center w-full max-w-[1240px]">
+            <div className="flex gap-5 max-md:flex-col">
+              <div className="flex flex-col w-[45%] max-md:w-full">
+                <div className="flex flex-col items-start font-bold text-white">
+                  <img
+                    loading="lazy"
+                    src="https://cdn.builder.io/api/v1/image/assets/2abb0b1728de4d98902e239cea09e9d5/44e3f5e31d7ebc113548c37c3f19e1a375e98b959190c8a771ee38e764151dde?apiKey=2abb0b1728de4d98902e239cea09e9d5&"
+                    className="object-contain max-w-full aspect-[1.93] w-[207px]"
+                    alt="Logo de l'entreprise"
                   />
+                  <h1 className="self-stretch mt-6 text-4xl tracking-wide leading-none text-amber-500">
+                    Lancez votre parcours d'apprentissage avec nous                  </h1>
+                  <h2 className="mt-4 text-3xl font-semibold tracking-wide leading-none">
+                    L’apprentissage qui ouvre des portes à votre avenir
+                  </h2>
+                  <p className="mt-3 text-xl tracking-tight leading-7">
+                    Des programmes créés par des experts pour vous aider à développer des compétences solides et avancer dans votre parcours professionnel.
+                  </p>
+
                 </div>
-                <div>
-                  <label className="block text-neutral-900">Password</label>
-                  <div className="flex items-center p-4 border border-zinc-400 rounded-lg">
-                    <input
-                      type="password"
-                      placeholder="Enter your Password"
-                      className="flex-1"
-                    />
-                    <img
-                      src="https://via.placeholder.com/24"
-                      alt="visibility"
-                      className="w-6"
-                    />
+              </div>
+              <div className="flex flex-col ml-5 w-[55%] max-md:ml-0 max-md:w-full">
+                <form onSubmit={handleSubmit} className="flex flex-col items-center px-12 py-12 mx-auto mt-24 w-full bg-white rounded-2xl shadow-sm max-md:px-5 max-md:mt-10">
+                  <img
+                    loading="lazy"
+                    src="https://cdn.builder.io/api/v1/image/assets/2abb0b1728de4d98902e239cea09e9d5/d14b416cba28ecb9789c9f7dd82f5a4a88d9550ed4c22539255c8b0d9bc6b877?apiKey=2abb0b1728de4d98902e239cea09e9d5&"
+                    className="object-contain max-w-full aspect-[1.93] w-[139px]"
+                    alt="Logo de connexion"
+                  />
+                  <h3 className="mt-5 text-2xl font-bold leading-none text-neutral-700">
+                    Connexion Apprenant
+                  </h3>
+                  <p className="mt-4 text-lg tracking-tight leading-none text-center text-neutral-700">
+                    Connectez-vous à votre compte
+                  </p>
+
+                  <div className="flex flex-col self-stretch mt-8 text-base min-h-[82px] w-full">
+                    <label 
+                      htmlFor="email"
+                      className="leading-none text-neutral-900"
+                    >
+                      Adresse e-mail
+                    </label>
+                    <div className="flex overflow-hidden flex-col justify-center p-4 mt-2 w-full bg-white rounded-lg border border-solid border-zinc-400 min-h-[56px]">
+                      <input
+                        type="email"
+                        id="email"
+                        value={formData.email}
+                        onChange={(e) => handleInputChange('email', e.target.value)}
+                        placeholder="Entrez votre adresse e-mail"
+                        required
+                        className="flex-1 shrink self-stretch my-auto basis-0 outline-none text-zinc-600"
+                        aria-label="Adresse e-mail"
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className="flex justify-between items-center">
-                  <label className="flex items-center gap-2">
-                    <input type="checkbox" className="w-4 h-4 border-amber-500" />
-                    <span>Remember Me</span>
-                  </label>
-                  <a href="#" className="text-indigo-800 font-bold">Forgot Password?</a>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full py-4 bg-amber-500 text-white font-bold rounded-full mt-10"
-                >
-                  Sign in
-                </button>
-              </form>
+
+                  <div className="flex flex-col self-stretch mt-8 text-base min-h-[82px] w-full">
+                    <label 
+                      htmlFor="password"
+                      className="leading-none text-neutral-900"
+                    >
+                      Mot de passe
+                    </label>
+                    <div className="flex overflow-hidden flex-col justify-center p-4 mt-2 w-full bg-white rounded-lg border border-solid border-zinc-400 min-h-[56px]">
+                      <div className="flex overflow-hidden gap-3 items-center w-full bg-white">
+                        <input
+                          type={formData.showPassword ? "text" : "password"}
+                          id="password"
+                          value={formData.password}
+                          onChange={(e) => handleInputChange('password', e.target.value)}
+                          placeholder="Entrez votre mot de passe"
+                          required
+                          className="flex-1 shrink self-stretch my-auto basis-0 outline-none text-zinc-600"
+                          aria-label="Mot de passe"
+                        />
+                        <button
+                          type="button"
+                          onClick={togglePasswordVisibility}
+                          className="focus:outline-none"
+                          aria-label={formData.showPassword ? "Masquer le mot de passe" : "Afficher le mot de passe"}
+                        >
+                          <img
+                            src="https://cdn.builder.io/api/v1/image/assets/2abb0b1728de4d98902e239cea09e9d5/9737036eeefb0557da1bf67e52a84418f728222b6e33abec981b51e77e7e151f?apiKey=2abb0b1728de4d98902e239cea09e9d5&"
+                            className="object-contain shrink-0 self-stretch my-auto w-6 aspect-square"
+                            alt=""
+                            aria-hidden="true"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-5 justify-between self-stretch mt-10 w-full">
+                    <div className="flex gap-3">
+                      <input
+                        type="checkbox"
+                        id="rememberMe"
+                        checked={formData.rememberMe}
+                        onChange={(e) => handleInputChange('rememberMe', e.target.checked)}
+                        className="w-8 h-8 rounded-sm border-amber-500 border-solid border-[1.5px]"
+                        aria-label="Se souvenir de moi"
+                      />
+                      <label 
+                        htmlFor="rememberMe" 
+                        className="my-auto text-base leading-none text-zinc-800"
+                      >
+                        Se souvenir de moi
+                      </label>
+                    </div>
+                    <button
+                      type="button"
+                      className="my-auto text-base font-bold leading-none text-indigo-800"
+                    >
+                      Mot de passe oublié
+                    </button>
+                  </div>
+
+                 <Link to="/dashboard"> <button
+                    type="submit"
+                    className="px-20 py-5 mt-20 w-80 max-w-full text-base font-bold leading-none text-center text-white bg-amber-500 hover:bg-amber-600 transition-colors rounded-[40px] max-md:px-5 max-md:mt-10"
+                  >
+                    Se connecter
+                  </button>
+                  </Link>
+                </form>
+              </div>
             </div>
           </div>
-          <footer className="mt-16 text-center text-amber-500">
-            <p>Terms of Use | Privacy Policy | Legal Notices & Terms</p>
-            <p className="text-white font-bold mt-2">© 2023 digiaccel, All rights reserved</p>
+          
+          <footer className="flex flex-wrap gap-5 justify-between px-8 py-8 mt-24 w-full bg-white bg-opacity-40 max-md:px-5 max-md:mt-10">
+            <div className="text-sm leading-none text-center text-amber-500">
+              Conditions d'utilisation<span className="text-amber-500"> |</span> Politique
+              de confidentialité <span className="text-amber-500">|</span> Mentions
+              légales
+            </div>
+            <div className="text-base font-bold leading-none text-white">
+              © 2023 digiaccel, Tous droits réservés
+            </div>
           </footer>
         </div>
       </div>
     </div>
   );
-}
-
-export default Login;
+};

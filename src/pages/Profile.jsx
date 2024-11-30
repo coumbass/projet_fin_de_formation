@@ -1,5 +1,84 @@
 import * as React from "react";
 
+
+import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+
+
+const Navigation = () => {
+  const [activeTab, setActiveTab] = useState("");
+  const navigate = useNavigate(); // Hook pour la navigation
+
+  const getButtonClasses = (tabName) => {
+    const baseClasses = "px-12 py-4 rounded-r-full flex items-center space-x-4 transition-colors w-56 text-lg";
+    return `${baseClasses} ${
+      activeTab === tabName
+        ? "bg-orange-500 text-white"
+        : "bg-white text-orange-500 hover:bg-orange-100"
+    }`;
+  };
+
+  return (
+    <div className="p-6">
+      {/* Logo digi avec les points */}
+      <div className="flex items-center mb-10">
+        <span className="text-orange-500 font-bold text-3xl">digi</span>
+        <div className="flex gap-1.5 ml-2">
+          <div className="w-2 h-2 rounded-full bg-orange-500"></div>
+          <div className="w-2 h-2 rounded-full bg-orange-500"></div>
+          <div className="w-2 h-2 rounded-full bg-orange-500"></div>
+        </div>
+      </div>
+
+      {/* Liste des boutons de navigation */}
+      <div className="flex flex-col space-y-6">
+        {/* Bouton Home */}
+        <button
+          onClick={() => {
+            setActiveTab("home");
+            navigate("/dashboard"); // Redirige vers la page d'accueil
+          }}
+          className={getButtonClasses("home")}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+          </svg>
+          <span>Home</span>
+        </button>
+
+        {/* Bouton Cours */}
+        <button
+          onClick={() => {
+            setActiveTab("cours");
+            navigate("/courses/catalog"); // Redirige vers courses/catalog
+          }}
+          className={getButtonClasses("cours")}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+          </svg>
+          <span>Cours</span>
+        </button>
+
+        {/* Bouton Messages */}
+        <button
+          onClick={() => {
+            setActiveTab("messages");
+            navigate("/chat"); // Redirige vers messages
+          }}
+          className={getButtonClasses("messages")}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+          </svg>
+          <span>Messages</span>
+        </button>
+      </div>
+    </div>
+  );
+};
+
 export default function Profile() {
   const messages = [
     {
@@ -69,12 +148,7 @@ export default function Profile() {
         <div className="flex gap-5 max-md:flex-col">
           <div className="flex flex-col w-[16%] max-md:ml-0 max-md:w-full">
             <div className="flex flex-col grow mt-9 max-md:mt-10">
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/2abb0b1728de4d98902e239cea09e9d5/d35a621b9e3070974bd5e8f25ac99a5baa27bb928a4f3c3d584536ceea35e891?apiKey=2abb0b1728de4d98902e239cea09e9d5&"
-                alt=""
-                className="object-contain self-center max-w-full aspect-[0.39] w-[134px]"
-              />
+              <Navigation />
               <img
                 loading="lazy"
                 src="https://cdn.builder.io/api/v1/image/assets/2abb0b1728de4d98902e239cea09e9d5/ff5557c20dbdebb8df29cfbfe02f5c350a7374383a6276ef5ac6aa11cc06a36a?apiKey=2abb0b1728de4d98902e239cea09e9d5&"
